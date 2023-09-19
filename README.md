@@ -54,6 +54,19 @@
   1.  修改packages/components目录下的`package.json`文件，将 `name` 属性值替换为你的组件库名称 _小写，中划线连接_
   2.  修改constants目录下的 `index.ts` 文件，将 `NAME` 变量值修改为你的组件库名称 _大驼峰_
 
+- 查看packages/components目录下的`package.json`文件 修改代码
+
+```json
+  "dependencies": {
+    "@vitepress-demo-preview/component": "^2.3.2",
+    "@vitepress-demo-preview/plugin": "^1.2.2",
+    "aiva-components": "link:E:/Project/aiva/vbox/packages/components", // 删除此行
+    "autoprefixer": "^10.4.15",
+    "tailwindcss": "^3.3.3",
+    "vue": "^3.3.4"
+  }
+```
+
 - 在packages/components目录下运行 `pnpm link --dir ../docs`
 
 ## 开发
