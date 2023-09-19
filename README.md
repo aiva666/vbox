@@ -62,6 +62,8 @@
 
 ## 开发
 
+### 准备工作
+
 - 进入packages/docs项目，运行 `pnpm dev`
 
 - **由于在上一步已经修改组件库名称, 所以docs项目内的组件库依赖包也需要修改**
@@ -77,6 +79,10 @@ import { Btn } from "your-lib-name"
 ```
 
 - 修改packages/components代码，docs项目会热更新
+
+### 注意事项
+
+- **组件的依赖项记得添加到build目录下的package.json**
 
 ## 构建
 
