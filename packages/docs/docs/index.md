@@ -9,7 +9,7 @@ hero:
   actions:
     - theme: brand
       text: 快速开始
-      link: /component/document/common/
+      link: /guide/intro
 
 features:
   - icon: 🎉

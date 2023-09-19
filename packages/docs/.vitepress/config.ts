@@ -1,11 +1,9 @@
 import { defineConfig } from "vitepress"
 import vueJsx from "@vitejs/plugin-vue-jsx"
 import { containerPreview, componentPreview } from "@vitepress-demo-preview/plugin"
+import {resolve} from 'path'
 
-import autoprefixer from "autoprefixer"
-import tailwindcss from "tailwindcss"
-
-import { NAME } from "../../../constants"
+import { DIR_NAME, NAME } from "../../../constants"
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -47,18 +45,13 @@ export default defineConfig({
   },
   vite: {
     plugins: [vueJsx()],
-    css: {
-      postcss: {
-        plugins: [
-          autoprefixer(),
-          tailwindcss({
-            content: ["./**/*.{vue,jsx,tsx,css}"],
-            corePlugins: {
-              preflight: false,
-            },
-          }),
-        ],
-      },
-    },
+    resolve:{
+      alias:[
+        {
+          find:DIR_NAME,
+          replacement:resolve(__dirname,'../../components/src/index.ts')
+        }
+      ]
+    }
   },
 })

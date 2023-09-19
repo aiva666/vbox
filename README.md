@@ -12,10 +12,10 @@
 │  pnpm-lock.yaml
 │  pnpm-workspace.yaml
 │  README.md
-├─build  构建产物目录
 └─packages  工作空间
     ├─docs  组件文档项目
     │  │  package.json
+    │  │  tsconfig.json
     │  ├─.vitepress
     │  │  │  .gitignore
     │  │  │  config.ts  vitepress 配置
@@ -25,17 +25,13 @@
     │  │      └─styles  样式
     │  ├─docs  文档目录
     │  │  │  index.md 首页MD
-    └─components  组件开发项目
+    └─components  组件项目
         │  .eslintrc.cjs
         │  .gitignore
         │  .prettierrc.json
         │  env.d.ts
-        │  index.ts
         │  package.json
-        │  postcss.config.js
         │  README.md
-        │  tailwind.config.js
-        │  ts.build.info
         │  tsconfig.app.json
         │  tsconfig.json
         │  tsconfig.node.json
@@ -49,12 +45,13 @@
 
 首先，**请确保你的依赖管理工具为 [pnpm](https://pnpm.io/zh/)**
 
+- 在 packages/docs 目录下运行 `pnpm uninstall aiva-components` (_默认组件库名字叫做 `aiva-components`_)
+
 - 修改组件库名称
 
-  1.  修改packages/components目录下的`package.json`文件，将 `name` 属性值替换为你的组件库名称 _小写，中划线连接_
-  2.  修改constants目录下的 `index.ts` 文件，将 `NAME` 变量值修改为你的组件库名称 _大驼峰_
-
-- 在 packages/docs 目录下运行 `pnpm uninstall aiva-components` _默认组件库名字叫做 `aiva-components`_
+  1.  修改packages/components目录下的`package.json`文件，将 `name` 属性值替换为你的组件库名称
+  2.  修改constants目录下的 `index.ts` 文件，将 `NAME` 变量值修改为你的组件库名称 (_页面显示_)
+  3.  找到packages/docs目录下的 `tsconfig.json` 文件，将 `paths` 中 key 为 `aiva-components` 的属性，将**属性名**修改为你的组件库名称
 
 - 在 packages/components 目录下运行 `pnpm link --dir ../docs`
 
@@ -66,7 +63,7 @@
 
 - 进入packages/docs项目，运行 `pnpm dev`
 
-- **由于在上一步已经修改组件库名称, 所以docs项目内的组件库依赖包也需要修改**
+- **由于在上一步已经修改组件库名称, 所以docs项目内的demo的依赖也需要修改**
 
 ```vue
 <script setup lang="ts">
@@ -79,10 +76,6 @@ import { Btn } from "your-lib-name"
 ```
 
 - 修改packages/components代码，docs项目会热更新
-
-### 注意事项
-
-- **组件的依赖项记得添加到build目录下的package.json**
 
 ## 构建
 
