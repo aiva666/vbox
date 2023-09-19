@@ -1,1 +1,1 @@
-button[data-v-193eea9c]{border:1px solid #ddd;padding:2px 6px;border-radius:4px}
+:root{--aiva-border-color: #d0344e}button[data-v-2cd39bbc]{border:1px solid var(--aiva-border-color);padding:2px 6px;border-radius:4px}
