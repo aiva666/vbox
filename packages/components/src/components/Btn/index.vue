@@ -2,9 +2,12 @@
 defineOptions({
   name: 'AivaBtn'
 })
+defineProps<{
+  text: string
+}>()
 </script>
 <template>
-  <button><slot></slot></button>
+  <button>{{ text }}</button>
 </template>
 
 <style scoped>

@@ -2,5 +2,5 @@
 import { Btn } from "aiva-components"
 </script>
 <template>
-  <div><Btn>按钮</Btn></div>
+  <div><Btn text="按钮"></Btn></div>
 </template>
